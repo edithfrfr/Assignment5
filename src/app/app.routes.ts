@@ -11,5 +11,19 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/add-expense.component/add-expense.component')
         .then(m => m.AddExpenseComponent)
-  }
+  },
+  {
+  path: 'transactions',
+  loadComponent: () =>
+    import('./pages/transactions/transactions.component')
+      .then(m => m.TransactionsComponent)
+},
+{
+  path: 'edit/:id',
+  loadComponent: () =>
+    import('./pages/edit-expense/edit-expense.component')
+      .then(m => m.EditExpenseComponent)
+}
+
+
 ];

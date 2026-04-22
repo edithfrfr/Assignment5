@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Your Transactions</h2>
+
+  @for (tx of expenses(); track tx.id) {
+    <div class="tx-card">
+      <div class="info">
+        <h3>{{ tx.category }} — ${{ tx.amount }}</h3>
+        <p>{{ tx.date }}</p>
+        <p>{{ tx.notes }}</p>
+      </div>
+
+      <div class="actions">
+        <button mat-button color="primary" (click)="edit(tx.id)">Edit</button>
+        <button mat-button color="warn" (click)="delete(tx.id)">Delete</button>
+      </div>
+    </div>
+  }
+</div>
