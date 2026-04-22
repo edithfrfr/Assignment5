@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Your Profile</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Monthly Budget Goal</mat-label>
+      <input matInput type="number" formControlName="monthlyGoal">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      Save Changes
+    </button>
+  </form>
+</div>

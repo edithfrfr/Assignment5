@@ -1,7 +1,41 @@
 <div class="container">
   <h2>Your Transactions</h2>
+  <h3>Filters</h3>
 
-  @for (tx of expenses(); track tx.id) {
+  <form [formGroup]="filterForm" class="filters">
+    <mat-form-field appearance="outline">
+      <mat-label>Start Date</mat-label>
+      <input matInput type="date" formControlName="startDate" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>End Date</mat-label>
+      <input matInput type="date" formControlName="endDate" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option value="">All</mat-option>
+
+        @for (c of categories(); track c.id) {
+          <mat-option [value]="c.name"> {{ c.icon }} {{ c.name }} </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Min Amount</mat-label>
+      <input matInput type="number" formControlName="minAmount" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Max Amount</mat-label>
+      <input matInput type="number" formControlName="maxAmount" />
+    </mat-form-field>
+  </form>
+
+  @for (tx of filteredTransactions(); track tx.id) {
     <mat-card class="tx-card">
       <div class="tx-header">
         <div class="tx-category">{{ tx.category }}</div>

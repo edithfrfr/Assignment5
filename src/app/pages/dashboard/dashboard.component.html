@@ -51,6 +51,34 @@
     </div>
   }
 
+  <h3>Budget Progress</h3>
+
+  <div class="budget-grid">
+    @for (item of budgetProgress(); track item.id) {
+      <div class="budget-card">
+        <div class="header">
+          <span class="icon" [style.background]="item.color">{{ item.icon }}</span>
+          <strong>{{ item.name }}</strong>
+        </div>
+
+        <div class="bar">
+          <div
+            class="fill"
+            [style.width.%]="item.percent"
+            [style.background]="item.over ? '#c62828' : item.color"
+          ></div>
+        </div>
+
+        <p class="details">
+          ${{ item.spent }} / ${{ item.budget }}
+          @if (item.over) {
+            <span class="over">Over budget</span>
+          }
+        </p>
+      </div>
+    }
+  </div>
+
   <!-- Recent Transactions -->
   <h3>Recent Transactions</h3>
   <div class="recent-list">

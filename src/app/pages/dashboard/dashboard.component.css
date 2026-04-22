@@ -148,3 +148,61 @@
 .amount.income {
     color: #2e7d32;
 }
+
+.budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.budget-card {
+    padding: 14px;
+    border-radius: 10px;
+    background: #fafafa;
+    border: 1px solid #eee;
+}
+
+.budget-card .header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.budget-card .icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.bar {
+    width: 100%;
+    height: 12px;
+    background: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.3s ease;
+}
+
+.details {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.over {
+    color: #c62828;
+    font-weight: 600;
+    margin-left: 6px;
+}
