@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -21,26 +21,21 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class RegisterComponent {
 
-  //give form a type so angular doesnt infer {}
-  form: any;
- 
-  constructor(
-    private fb: FormBuilder,
-    private auth: AuthService,
-    private router: Router
-  ) {
-    this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    });
-  }
+  private fb = inject(FormBuilder);
+  private auth = inject(AuthService);
+  private router = inject(Router);
+
+  form = this.fb.nonNullable.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  });
 
   register() {
     if (this.form.invalid) return;
 
-    const { email, password } = this.form.value;
+    const { email, password } = this.form.getRawValue();
 
-    this.auth.register(email!, password!)
+    this.auth.register(email, password)
       .then(() => this.router.navigate(['/dashboard']))
       .catch(err => console.error(err));
   }
