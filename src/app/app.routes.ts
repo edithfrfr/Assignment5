@@ -23,7 +23,21 @@ export const routes: Routes = [
   loadComponent: () =>
     import('./pages/edit-expense/edit-expense.component')
       .then(m => m.EditExpenseComponent)
+}, 
+{
+  path: 'dashboard',
+  loadComponent: () =>
+    import('./pages/dashboard/dashboard.component')
+      .then(m => m.DashboardComponent)
+},
+{
+  path: 'categories',
+  loadComponent: () =>
+    import('./pages/categories/categories.component')
+      .then(m => m.CategoriesComponent)
 }
+
+
 
 
 ];

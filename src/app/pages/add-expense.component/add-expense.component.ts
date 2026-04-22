@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-add-expense.component',
@@ -25,12 +26,11 @@ export class AddExpenseComponent {
 
   private fb = inject(FormBuilder);
   private expenseService = inject(ExpenseService);
+  private categoryService = inject(CategoryService);
   // private auth = inject(AuthService);
   private router = inject(Router);
 
-  categories = [
-    'Food', 'Rent', 'Travel', 'Shopping', 'Utilities', 'Entertainment', 'Other'
-  ];
+  categories = this.categoryService.categories;
 
   types = ['Income', 'Expense'];
 

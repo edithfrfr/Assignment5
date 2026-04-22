@@ -5,6 +5,8 @@ import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { CategoryService } from '../../services/category.service';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-edit-expense',
@@ -12,7 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   templateUrl: './edit-expense.component.html',
   styleUrls: ['./edit-expense.component.css']
@@ -21,8 +24,11 @@ export class EditExpenseComponent {
 
   private route = inject(ActivatedRoute);
   private fb = inject(FormBuilder);
+  private categoryService = inject(CategoryService);
   private expenseService = inject(ExpenseService);
   private router = inject(Router);
+
+  categories = this.categoryService.categories;
 
   id = this.route.snapshot.paramMap.get('id')!;
 

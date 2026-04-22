@@ -10,8 +10,10 @@
     <mat-form-field appearance="outline">
       <mat-label>Category</mat-label>
       <mat-select formControlName="category">
-        @for (c of categories; track c) {
-          <mat-option [value]="c">{{ c }}</mat-option>
+        @for (c of categories(); track c) {
+          <mat-option [value]="c.name">
+            {{ c.icon }} {{ c.name }}
+          </mat-option>
         }
       </mat-select>
     </mat-form-field>

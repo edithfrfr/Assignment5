@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Categories</h2>
+
+  <!-- Add Category Form -->
+  <form class="add-form" [formGroup]="form" (ngSubmit)="add()">
+    <input type="text" placeholder="Category name" formControlName="name" />
+
+    <input type="color" formControlName="color" />
+
+    <input type="text" placeholder="Icon (emoji)" formControlName="icon" />
+
+    <button type="submit">Add</button>
+  </form>
+
+  <!-- Category Grid -->
+  <div class="grid">
+    @for (cat of categories(); track cat.id) {
+      <div class="cat-card">
+        <div class="icon" [style.background]="cat.color">
+          {{ cat.icon }}
+        </div>
+        <div class="info">
+          <h3>{{ cat.name }}</h3>
+          <p>{{ cat.color }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</div>

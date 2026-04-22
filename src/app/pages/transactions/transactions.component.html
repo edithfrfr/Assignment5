@@ -2,17 +2,22 @@
   <h2>Your Transactions</h2>
 
   @for (tx of expenses(); track tx.id) {
-    <div class="tx-card">
-      <div class="info">
-        <h3>{{ tx.category }} — ${{ tx.amount }}</h3>
-        <p>{{ tx.date }}</p>
-        <p>{{ tx.notes }}</p>
+    <mat-card class="tx-card">
+      <div class="tx-header">
+        <div class="tx-category">{{ tx.category }}</div>
+        <div class="tx-amount" [class.income]="tx.type === 'Income'">${{ tx.amount }}</div>
       </div>
 
-      <div class="actions">
+      <div class="tx-details">
+        <p><strong>Date:</strong> {{ tx.date }}</p>
+        <p><strong>Type:</strong> {{ tx.type }}</p>
+        <p><strong>Notes:</strong> {{ tx.notes || '—' }}</p>
+      </div>
+
+      <div class="tx-actions">
         <button mat-button color="primary" (click)="edit(tx.id)">Edit</button>
         <button mat-button color="warn" (click)="delete(tx.id)">Delete</button>
       </div>
-    </div>
+    </mat-card>
   }
 </div>

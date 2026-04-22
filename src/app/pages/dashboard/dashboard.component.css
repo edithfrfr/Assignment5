@@ -1,0 +1,150 @@
+.dashboard-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.sub {
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+/* Summary Cards */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.card {
+    padding: 16px;
+    border-radius: 12px;
+    color: white;
+    text-align: left;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.card .value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.card.income {
+    background: #2e7d32;
+}
+
+.card.expense {
+    background: #c62828;
+}
+
+.card.net {
+    background: #1565c0;
+}
+
+.card.budget {
+    background: #6a1b9a;
+}
+
+/* Chart */
+.chart-box {
+    margin-bottom: 30px;
+}
+
+.bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.bar-row span {
+    width: 100px;
+    font-weight: 600;
+}
+
+.bar {
+    flex: 1;
+    height: 14px;
+    background: #eee;
+    border-radius: 7px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    border-radius: 7px;
+}
+
+.income-fill {
+    background: #2e7d32;
+}
+
+.expense-fill {
+    background: #c62828;
+}
+
+.category-fill {
+    background: #1976d2;
+}
+
+/* Category rows */
+.category-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.category-row .label {
+    width: 120px;
+    font-weight: 600;
+}
+
+.bar.small {
+    height: 10px;
+    margin: 0 10px;
+}
+
+/* Recent Transactions */
+.recent-list {
+    margin-top: 20px;
+}
+
+.recent-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.recent-item .note {
+    margin: 0;
+    color: #777;
+    font-size: 0.85rem;
+}
+
+.right {
+    text-align: right;
+}
+
+.date {
+    display: block;
+    color: #777;
+    font-size: 0.85rem;
+}
+
+.amount {
+    font-weight: 700;
+    color: #c62828;
+}
+
+.amount.income {
+    color: #2e7d32;
+}

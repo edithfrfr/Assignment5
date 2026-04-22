@@ -1,11 +1,18 @@
-import { Component, inject, signal, effect } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ExpenseService } from '../../services/expense.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-transactions',
   standalone: true,
+  imports: [
+    MatCardModule,
+    MatButtonModule
+  ],
   templateUrl: './transactions.component.html',
   styleUrls: ['./transactions.component.css']
 })
