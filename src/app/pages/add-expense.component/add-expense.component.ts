@@ -27,7 +27,7 @@ export class AddExpenseComponent {
   private fb = inject(FormBuilder);
   private expenseService = inject(ExpenseService);
   private categoryService = inject(CategoryService);
-  // private auth = inject(AuthService);
+  private auth = inject(AuthService);
   private router = inject(Router);
 
   categories = this.categoryService.categories;
@@ -45,8 +45,7 @@ export class AddExpenseComponent {
   submit(){
     if (this.form.invalid) return;
 
-    // const uid = this.auth.currentUser()?.uid;
-    const uid = "mock-user-id"; //temp
+    const uid = this.auth.currentUser()?.uid;
     if (!uid) return;
 
     const raw = this.form.value;

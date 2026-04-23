@@ -1,0 +1,53 @@
+.login-container {
+    width: 350px;
+    margin: 80px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 5px;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.sub {
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.full {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* FIX: push form down so overlay doesn't cover link */
+form {
+    padding-bottom: 40px;
+    display: block;
+}
+
+/* FIX: ensure link is above everything */
+.register-link {
+    margin-top: 20px;
+    display: block;
+    position: relative;
+    z-index: 1000;
+}
+
+.register-link a {
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    z-index: 1001;
+    color: #4c6ef5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

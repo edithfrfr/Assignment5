@@ -1,1 +1,31 @@
-<p>register works!</p>
+<div class="register-container">
+  <h2>Create Account</h2>
+  <p class="sub">Sign up to get started</p>
+
+  <form [formGroup]="form" (ngSubmit)="register()">
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" />
+
+      @if (form.controls.email.invalid && form.controls.email.touched) {
+        <mat-error>Please enter a valid email</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" />
+
+      @if (form.controls.password.invalid && form.controls.password.touched) {
+        <mat-error>Password must be at least 6 characters</mat-error>
+      }
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="full" type="submit">Create Account</button>
+
+    <p class="login-link">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </form>
+</div>

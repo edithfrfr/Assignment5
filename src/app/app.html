@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<div class="sidebar">
+  <div class="sidebar-title">Expense Tracker</div>
+
+  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+  <a routerLink="/add" routerLinkActive="active">Add Expense</a>
+  <a routerLink="/transactions" routerLinkActive="active">Transactions</a>
+  <a routerLink="/categories" routerLinkActive="active">Categories</a>
+  <a routerLink="/budget" routerLinkActive="active">Budget</a>
+  <a routerLink="/profile" routerLinkActive="active">Profile</a>
+
+  <button class="logout-btn" (click)="logout()">Logout</button>
+</div>
+
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>

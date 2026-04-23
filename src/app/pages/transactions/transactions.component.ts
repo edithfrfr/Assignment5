@@ -9,6 +9,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { CategoryService } from '../../services/category.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-transactions',
@@ -18,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule
   ],
   templateUrl: './transactions.component.html',
