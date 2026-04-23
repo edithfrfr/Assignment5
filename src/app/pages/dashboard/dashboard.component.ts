@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, effect } from '@angular/core';
 import { ExpenseService } from '../../services/expense.service';
 import { AuthService } from '../../services/auth.service';
 import { BudgetService } from '../../services/budget.service';
@@ -22,13 +22,14 @@ export class DashboardComponent {
   categories = this.categoryService.categories;
 
   constructor() {
+  effect(() => {                             
     const uid = this.auth.currentUser()?.uid;
     if (!uid) return;
-
     this.expenseService.getExpenses(uid).subscribe(list => {
       this.expenses.set(list);
     });
-  }
+  });
+}
 
   totalIncome = computed(() =>
     this.expenses().filter(x => x.type === 'Income')

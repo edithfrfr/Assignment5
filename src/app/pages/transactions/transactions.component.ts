@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, effect } from '@angular/core';
 import { ExpenseService } from '../../services/expense.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -67,17 +67,23 @@ filteredTransactions = computed(() => {
 
 
   constructor() {
+    effect(() => {
     const uid = this.auth.currentUser()?.uid;
     if (!uid) return;
 
     this.expenseService.getExpenses(uid).subscribe(list => {
       this.expenses.set(list);
     });
-  }
+  });
+}
 
   delete(id: string) {
     this.expenseService.deleteExpense(id).then(() => {
-      console.log("Deleted", id);
+      const uid = this.auth.currentUser()?.uid;
+      if (!uid) return;
+      this.expenseService.getExpenses(uid).subscribe(list => {
+        this.expenses.set(list);
+      });
     });
   }
 
